@@ -1,0 +1,28 @@
+<div  class="row">
+    <div class="col-lg-3">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search inteface list">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button">Go!</button>
+            </span>
+        </div>
+    </div>
+</div>
+<div class="panel panel-default margin-t10">
+    <div class="panel-body">
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <td class="bold wp80">path</td>
+                <td class="bold wp20">Operating</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="list in lists">
+                <td>{{list.path}}</td>
+                <td><a href="#/detail/{{list.id}}">查看</a><a href="">删除</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

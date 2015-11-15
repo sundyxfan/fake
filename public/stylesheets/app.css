@@ -1,0 +1,42 @@
+/**
+ * common style
+ */
+.bold {
+    font-weight: 700;
+}
+.wp80{
+    width: 80%;
+}
+.wp20{
+    width: 20%;
+}
+.wp10 {
+    width: 10%;
+}
+
+.text-c {
+    text-align: center;
+}
+
+.margin-l10 {
+    margin-left: 10px;
+}
+.margin-t10 {
+    margin-top: 10px;
+}
+
+.block {
+    display: block;
+}
+.content {
+   padding-top: 60px;  
+}
+.table thead {
+    font-weight: 700;
+}
+
+.response-text {
+    padding: 10px;
+    min-height: 200px;
+    border: none;
+}

@@ -1,0 +1,88 @@
+ <div class="col-sm-3 margin-t10">
+     <div class="panel panel-default">
+        <div class="panel-heading bold">Preview</div>
+        <div class="panel-body">
+            <h5>Request Url</h5>
+            <p class="text-muted" ng-bind="data.requestUrl.length ? data.requestUrl : '---'"></p>
+            <h5>Method</h5>
+            <p class="text-muted" ng-bind="data.method"></p>
+            <h5>Request Params</h5>
+            <ul>
+                <li ng-repeat="param in data.requestParameters">
+                    <span class="text-muted">{{param.paramName}}</span>
+                    &nbsp;
+                    <a class="text-muted block">//&nbsp;<span ng-if="param.required" ng-class="{'text-danger':param.required}" title="{{param.remark}}">(必填)&nbsp;</span>
+                    <span ng-bind="param.remark.length ? param.remark : '---'"></span></a>
+                </li>
+            </ul>
+            <h5>Response Data</h5>
+            <div json-format="data.responseJson"></div>
+        </div>
+    </div>
+</div>
+<div class="col-sm-9">
+     <form class="form-horizontal" name="form">
+        <div class="panel panel-default margin-t10">
+            <div class="panel-heading bold">Interface Detail</div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">request url:</label>
+                    <div class="form-control-static col-sm-10" ng-if="isDetail">
+                        <label class="text-info">/getInfo.json</label>
+                    </div>
+                    <div class="col-sm-10" ng-class="{'has-error': form.requestUrl.$error.required}" ng-if="!isDetail">
+                        <input type="text" class="form-control" smarty-text="data.urls" ng-model="data.requestUrl" name="requestUrl" interface-suffix="{{interfaceSuffix}}" placeholder="/xxx{{interfaceSuffix}}"ng-required="true"/>
+                        <span ng-if="form.requestUrl.$error.isRegular" class="text-danger margin-t10 block">输入的地址必须以/开头和以{{interfaceSuffix}}结尾</span>
+                        <span ng-if="form.requestUrl.$error.isExist" class="text-danger margin-t10 block">已存在</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">method:</label>
+                    <div class="col-sm-10">
+                        <label class="radio-inline">
+                            <input type="radio" name="method" value="GET" ng-model="data.method"> <span>GET</span>
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="method" value="POST" ng-model="data.method"><span>POST</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading bold">Request Parameters
+            <a ng-click="addParamsList()" class="pull-right btn btn-default btn-xs btn-sm glyphicon glyphicon-plus" title="add paramster" href="javascript:;"></a>
+            </div>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <td>required</td>
+                        <td>parameters name</td>
+                        <td>remark</td>
+                        <td>Operating</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="list in data.requestParameters">
+                        <td><input type="checkbox" name="required" ng-model="list.required"></td>
+                        <td ng-class="{'has-error': form.paramName{{$index}}.$error.required}"><input type="text" class="form-control" placeholder="name" ng-model="list.paramName" name="paramName{{$index}}" ng-required="true"></td>
+                        <td><input type="text" class="form-control" placeholder="remark" ng-model="list.remark" name="remark"></td>
+                        <td><a ng-click="deleteParamsList($index)" class="glyphicon glyphicon-remove text-danger" href="javascript:;" title="delete"></a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading bold">response data</div>
+            <div class="panel-body" style="padding:0;">
+                <textarea class="form-control response-text" ng-model="data.responseJson">
+                </textarea>
+
+            </div>
+        </div>
+        <div class="container col-sm-12 row text-c">
+            <a class="btn btn-primary" ng-disabled="form.$invalid" ng-click="submit()">Submit</a>
+            <a class="btn btn-default margin-l10">Cancel</a>
+        </div>
+    </form>
+</div>
