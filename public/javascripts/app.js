@@ -10,12 +10,15 @@ require('./listEdit');
 
 
 // directiive
-require('./directive/');
+require('./directive');
+
+// service
+require('./service');
 
 var routers = require('./config'); 
 var appCtrl = require('./app.ctrl');
 
-var app = angular.module('app', ['ui.router', 'directive', 'header', 'lists', 'listEdit']);
+var app = angular.module('app', ['ui.router', 'directive', 'service', 'header', 'lists', 'listEdit']);
 
 app.config(['$urlRouterProvider', '$locationProvider', '$stateProvider', routers]);
 

@@ -1,7 +1,7 @@
 <div  class="row">
     <div class="col-lg-3">
         <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search inteface list">
+            <input type="text" class="form-control" ng-model="jsonPath" placeholder="Search inteface list">
             <span class="input-group-btn">
                 <button class="btn btn-default" type="button">Go!</button>
             </span>
@@ -19,7 +19,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="list in lists">
+            <tr ng-repeat="list in lists | filter:jsonPath">
                 <td>{{list.path}}</td>
                 <td><a href="#/detail/{{list.id}}">查看</a><a href="">删除</a></td>
             </tr>

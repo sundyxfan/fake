@@ -43602,17 +43602,20 @@ require('./listEdit');
 
 
 // directiive
-require('./directive/');
+require('./directive');
+
+// service
+require('./service');
 
 var routers = require('./config'); 
 var appCtrl = require('./app.ctrl');
 
-var app = angular.module('app', ['ui.router', 'directive', 'header', 'lists', 'listEdit']);
+var app = angular.module('app', ['ui.router', 'directive', 'service', 'header', 'lists', 'listEdit']);
 
 app.config(['$urlRouterProvider', '$locationProvider', '$stateProvider', routers]);
 
 app.controller('appCtrl', ['$scope', appCtrl]);
-},{"./app.ctrl":11,"./config":13,"./directive/":14,"./header":18,"./listEdit":19,"./lists":21,"angular":5,"angular-ui-bootstrap":1,"angular-ui-router":3}],13:[function(require,module,exports){
+},{"./app.ctrl":11,"./config":13,"./directive":14,"./header":18,"./listEdit":19,"./lists":21,"./service":24,"angular":5,"angular-ui-bootstrap":1,"angular-ui-router":3}],13:[function(require,module,exports){
 (function (Buffer){
 'use strict';
 var fs = require('fs');
@@ -43628,7 +43631,7 @@ function routing($urlRouterProvider, $locationProvider, $stateProvider) {
             views: {
                 header: headerConfig,
                 body: {
-                    template: Buffer("PGRpdiAgY2xhc3M9InJvdyI+CiAgICA8ZGl2IGNsYXNzPSJjb2wtbGctMyI+CiAgICAgICAgPGRpdiBjbGFzcz0iaW5wdXQtZ3JvdXAiPgogICAgICAgICAgICA8aW5wdXQgdHlwZT0idGV4dCIgY2xhc3M9ImZvcm0tY29udHJvbCIgcGxhY2Vob2xkZXI9IlNlYXJjaCBpbnRlZmFjZSBsaXN0Ij4KICAgICAgICAgICAgPHNwYW4gY2xhc3M9ImlucHV0LWdyb3VwLWJ0biI+CiAgICAgICAgICAgICAgICA8YnV0dG9uIGNsYXNzPSJidG4gYnRuLWRlZmF1bHQiIHR5cGU9ImJ1dHRvbiI+R28hPC9idXR0b24+CiAgICAgICAgICAgIDwvc3Bhbj4KICAgICAgICA8L2Rpdj4KICAgIDwvZGl2Pgo8L2Rpdj4KPGRpdiBjbGFzcz0icGFuZWwgcGFuZWwtZGVmYXVsdCBtYXJnaW4tdDEwIj4KICAgIDxkaXYgY2xhc3M9InBhbmVsLWJvZHkiPgogICAgPC9kaXY+CiAgICA8dGFibGUgY2xhc3M9InRhYmxlIj4KICAgICAgICA8dGhlYWQ+CiAgICAgICAgICAgIDx0cj4KICAgICAgICAgICAgICAgIDx0ZCBjbGFzcz0iYm9sZCB3cDgwIj5wYXRoPC90ZD4KICAgICAgICAgICAgICAgIDx0ZCBjbGFzcz0iYm9sZCB3cDIwIj5PcGVyYXRpbmc8L3RkPgogICAgICAgICAgICA8L3RyPgogICAgICAgIDwvdGhlYWQ+CiAgICAgICAgPHRib2R5PgogICAgICAgICAgICA8dHIgbmctcmVwZWF0PSJsaXN0IGluIGxpc3RzIj4KICAgICAgICAgICAgICAgIDx0ZD57e2xpc3QucGF0aH19PC90ZD4KICAgICAgICAgICAgICAgIDx0ZD48YSBocmVmPSIjL2RldGFpbC97e2xpc3QuaWR9fSI+5p+l55yLPC9hPjxhIGhyZWY9IiI+5Yig6ZmkPC9hPjwvdGQ+CiAgICAgICAgICAgIDwvdHI+CiAgICAgICAgPC90Ym9keT4KICAgIDwvdGFibGU+CjwvZGl2Pg==","base64"),
+                    template: Buffer("PGRpdiAgY2xhc3M9InJvdyI+CiAgICA8ZGl2IGNsYXNzPSJjb2wtbGctMyI+CiAgICAgICAgPGRpdiBjbGFzcz0iaW5wdXQtZ3JvdXAiPgogICAgICAgICAgICA8aW5wdXQgdHlwZT0idGV4dCIgY2xhc3M9ImZvcm0tY29udHJvbCIgbmctbW9kZWw9Impzb25QYXRoIiBwbGFjZWhvbGRlcj0iU2VhcmNoIGludGVmYWNlIGxpc3QiPgogICAgICAgICAgICA8c3BhbiBjbGFzcz0iaW5wdXQtZ3JvdXAtYnRuIj4KICAgICAgICAgICAgICAgIDxidXR0b24gY2xhc3M9ImJ0biBidG4tZGVmYXVsdCIgdHlwZT0iYnV0dG9uIj5HbyE8L2J1dHRvbj4KICAgICAgICAgICAgPC9zcGFuPgogICAgICAgIDwvZGl2PgogICAgPC9kaXY+CjwvZGl2Pgo8ZGl2IGNsYXNzPSJwYW5lbCBwYW5lbC1kZWZhdWx0IG1hcmdpbi10MTAiPgogICAgPGRpdiBjbGFzcz0icGFuZWwtYm9keSI+CiAgICA8L2Rpdj4KICAgIDx0YWJsZSBjbGFzcz0idGFibGUiPgogICAgICAgIDx0aGVhZD4KICAgICAgICAgICAgPHRyPgogICAgICAgICAgICAgICAgPHRkIGNsYXNzPSJib2xkIHdwODAiPnBhdGg8L3RkPgogICAgICAgICAgICAgICAgPHRkIGNsYXNzPSJib2xkIHdwMjAiPk9wZXJhdGluZzwvdGQ+CiAgICAgICAgICAgIDwvdHI+CiAgICAgICAgPC90aGVhZD4KICAgICAgICA8dGJvZHk+CiAgICAgICAgICAgIDx0ciBuZy1yZXBlYXQ9Imxpc3QgaW4gbGlzdHMgfCBmaWx0ZXI6anNvblBhdGgiPgogICAgICAgICAgICAgICAgPHRkPnt7bGlzdC5wYXRofX08L3RkPgogICAgICAgICAgICAgICAgPHRkPjxhIGhyZWY9IiMvZGV0YWlsL3t7bGlzdC5pZH19Ij7mn6XnnIs8L2E+PGEgaHJlZj0iIj7liKDpmaQ8L2E+PC90ZD4KICAgICAgICAgICAgPC90cj4KICAgICAgICA8L3Rib2R5PgogICAgPC90YWJsZT4KPC9kaXY+","base64"),
                     controller: 'listsCtrl'
                 }
             }
@@ -43850,17 +43853,39 @@ module.exports = function headerCtrl($scope, $stateParams, $http) {
 var listsCtrl = require('./lists.ctrl');
 
 module.exports = angular.module('lists', [])
-    .controller('listsCtrl', ['$scope', listsCtrl]);
+    .controller('listsCtrl', ['$scope', 'allLists', listsCtrl]);
 },{"./lists.ctrl":22}],22:[function(require,module,exports){
 'use strict';
 
-module.exports = function listsCtrl($scope) {
-    $scope.lists = [{
+module.exports = function listsCtrl($scope, allLists) {
+    allLists.getAllLists().then(function (data) {
+        $scope.lists = data;
+    });
+}
+},{}],23:[function(require,module,exports){
+/**
+ * [allLists description]  获取已有接口地址
+ */
+
+function allLists($q) {
+    var data = [{
         path: '/getInfo.json',
         id: 1
     }, {
         path: '/setInfo.json',
         id: 2
     }];
+
+    return {
+        getAllLists: function() {
+            return $q.when(data);
+        }
+    }
 }
-},{}]},{},[12]);
+
+module.exports = allLists;
+},{}],24:[function(require,module,exports){
+module.exports = angular.module('service', [])
+    .factory('allLists', ['$q', require('./allLists')]);
+
+},{"./allLists":23}]},{},[12]);
