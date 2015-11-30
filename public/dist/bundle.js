@@ -43843,7 +43843,7 @@ module.exports = function headerCtrl($scope, $stateParams, $http) {
         submit: function () {
             $http.post('/modify',angular.fromJson($scope.data)).then(function(data){
                 alert('保存成功');
-              });
+            });
         }
     });
 }
@@ -43853,13 +43853,16 @@ module.exports = function headerCtrl($scope, $stateParams, $http) {
 var listsCtrl = require('./lists.ctrl');
 
 module.exports = angular.module('lists', [])
-    .controller('listsCtrl', ['$scope', 'allLists', listsCtrl]);
+    .controller('listsCtrl', ['$scope', '$http', 'allLists', listsCtrl]);
 },{"./lists.ctrl":22}],22:[function(require,module,exports){
 'use strict';
 
-module.exports = function listsCtrl($scope, allLists) {
+module.exports = function listsCtrl($scope, $http, allLists) {
     allLists.getAllLists().then(function (data) {
         $scope.lists = data;
+    });
+    $http.get('/query',angular.fromJson($scope.data)).then(function(data){
+        alert('查询成功');
     });
 }
 },{}],23:[function(require,module,exports){

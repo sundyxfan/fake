@@ -1,6 +1,9 @@
 module.exports = function routers() {
     var express = require('express');
     var router = express.Router();
+    var fs = require('fs');
+    var path = require('path');
+    var createFile = require('../util/writeFile');
 
     /**
      * [description] 新增/编辑接口
@@ -12,6 +15,14 @@ module.exports = function routers() {
             code: 200,
             data: req.body
         });
+        console.log(createFile);
+        // 根据提交参数写文件
+        var fileName = req.body.requestUrl;
+        var data = './data';
+        var url = path.join(process.cwd(), data, fileName);
+        var doc = JSON.stringify(req.body, undefined, 5);
+
+        createFile(url, doc);
     });
 
     /**
@@ -20,7 +31,7 @@ module.exports = function routers() {
      * @return {[type]}
      */
     router.get('/delete', function () {
-
+        
     });
 
     /**
@@ -29,7 +40,7 @@ module.exports = function routers() {
      * @param {[type]}
      */
      router.get('/query', function () {
-        
+         require('../util/getAllLists')();
      });
 
     return router;

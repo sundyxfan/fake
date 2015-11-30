@@ -48,7 +48,7 @@ module.exports = function headerCtrl($scope, $stateParams, $http) {
         submit: function () {
             $http.post('/modify',angular.fromJson($scope.data)).then(function(data){
                 alert('保存成功');
-              });
+            });
         }
     });
 }

@@ -3,4 +3,4 @@
 var listsCtrl = require('./lists.ctrl');
 
 module.exports = angular.module('lists', [])
-    .controller('listsCtrl', ['$scope', 'allLists', listsCtrl]);
+    .controller('listsCtrl', ['$scope', '$http', 'allLists', listsCtrl]);
