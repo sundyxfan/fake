@@ -1,7 +1,7 @@
 /**
  * 获取已有接口文件
  */
-module.exports = function () {
+module.exports = function (filepath) {
 
     var fs = require('fs');
     var path = require('path');
@@ -15,7 +15,7 @@ module.exports = function () {
             // console.log(JSON.parse(data));
             data = JSON.parse(data);
             jsonData.push({
-                requestUrl: data.requestUrl.substr(1),
+                requestUrl: data.requestUrl,
                 method: data.method
             });
         }

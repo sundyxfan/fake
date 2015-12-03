@@ -21,7 +21,7 @@
         <tbody>
             <tr ng-repeat="list in lists | filter:jsonPath">
                 <td>{{list.requestUrl}}</td>
-                <td><a href="#/detail/{{list.requestUrl}}">查看</a><a href="#">删除</a></td>
+                <td><a href="#/detail{{list.requestUrl}}">查看</a><a href="#">删除</a></td>
             </tr>
         </tbody>
     </table>

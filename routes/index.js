@@ -49,5 +49,19 @@ module.exports = function routers() {
          });
      });
 
+     /**
+     * [description] 查询详情
+     * @param {[type]}
+     * @param {[type]}
+     */
+    
+    router.get('/detailById', function (req, res) {
+        var id = req.query.id;
+        var data = require('../util/getFile')(id);
+        res.json({
+             code: 200,
+             data: data
+        });
+    });
     return router;
 }

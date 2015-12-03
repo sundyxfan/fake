@@ -28,7 +28,7 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label">request url:</label>
                     <div class="form-control-static col-sm-10" ng-if="isDetail">
-                        <label class="text-info">/getInfo.json</label>
+                        <label class="text-info">{{data.requestUrl}}</label>
                     </div>
                     <div class="col-sm-10" ng-class="{'has-error': form.requestUrl.$error.required}" ng-if="!isDetail">
                         <input type="text" class="form-control" smarty-text="data.urls" ng-model="data.requestUrl" name="requestUrl" interface-suffix="{{interfaceSuffix}}" placeholder="/xxx{{interfaceSuffix}}"ng-required="true"/>

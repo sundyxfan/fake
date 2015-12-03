@@ -11,11 +11,11 @@
           }
      ],
      "requestUrl": "/cc.json",
-     "method": "GET",
+     "method": "POST",
      "requestParameters": [
           {
                "id": 1,
-               "paramName": "name",
+               "paramName": "namesdfsf",
                "remark": "beizhu",
                "required": false
           },
@@ -26,5 +26,5 @@
                "required": true
           }
      ],
-     "responseJson": "{\n     code: 304,\n    data: 'ok'\n}"
+     "responseJson": "{\n     code: 304,\n    data: 'ok test'\n}"
 }
