@@ -7,7 +7,8 @@
 module.exports = function headerCtrl($scope, $stateParams, $http) {
     var paramsId = $stateParams.id;
     var isDetail = paramsId !== undefined ? true : false;
-
+    // 根据请求参数找data目录找对应的文件，获取接口名称，参数，请求方式等等
+    // TODO
     angular.extend($scope, {
         isDetail: isDetail,
         interfaceSuffix: '.json',
@@ -47,7 +48,9 @@ module.exports = function headerCtrl($scope, $stateParams, $http) {
         },
         submit: function () {
             $http.post('/modify',angular.fromJson($scope.data)).then(function(data){
-                alert('保存成功');
+                if (data.data.code === 200) {
+                    alert('保存成功');
+                }
             });
         }
     });

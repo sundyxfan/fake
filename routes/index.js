@@ -39,8 +39,14 @@ module.exports = function routers() {
      * @param {[type]}
      * @param {[type]}
      */
-     router.get('/query', function () {
-         require('../util/getAllLists')();
+     router.get('/query', function (req, res) {
+         console.log('kaishi');
+         var data = require('../util/getAllLists')();
+         console.log('jiesu:' + data);
+         res.json({
+             code: 200,
+             data: data
+         });
      });
 
     return router;

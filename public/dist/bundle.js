@@ -43631,7 +43631,7 @@ function routing($urlRouterProvider, $locationProvider, $stateProvider) {
             views: {
                 header: headerConfig,
                 body: {
-                    template: Buffer("PGRpdiAgY2xhc3M9InJvdyI+CiAgICA8ZGl2IGNsYXNzPSJjb2wtbGctMyI+CiAgICAgICAgPGRpdiBjbGFzcz0iaW5wdXQtZ3JvdXAiPgogICAgICAgICAgICA8aW5wdXQgdHlwZT0idGV4dCIgY2xhc3M9ImZvcm0tY29udHJvbCIgbmctbW9kZWw9Impzb25QYXRoIiBwbGFjZWhvbGRlcj0iU2VhcmNoIGludGVmYWNlIGxpc3QiPgogICAgICAgICAgICA8c3BhbiBjbGFzcz0iaW5wdXQtZ3JvdXAtYnRuIj4KICAgICAgICAgICAgICAgIDxidXR0b24gY2xhc3M9ImJ0biBidG4tZGVmYXVsdCIgdHlwZT0iYnV0dG9uIj5HbyE8L2J1dHRvbj4KICAgICAgICAgICAgPC9zcGFuPgogICAgICAgIDwvZGl2PgogICAgPC9kaXY+CjwvZGl2Pgo8ZGl2IGNsYXNzPSJwYW5lbCBwYW5lbC1kZWZhdWx0IG1hcmdpbi10MTAiPgogICAgPGRpdiBjbGFzcz0icGFuZWwtYm9keSI+CiAgICA8L2Rpdj4KICAgIDx0YWJsZSBjbGFzcz0idGFibGUiPgogICAgICAgIDx0aGVhZD4KICAgICAgICAgICAgPHRyPgogICAgICAgICAgICAgICAgPHRkIGNsYXNzPSJib2xkIHdwODAiPnBhdGg8L3RkPgogICAgICAgICAgICAgICAgPHRkIGNsYXNzPSJib2xkIHdwMjAiPk9wZXJhdGluZzwvdGQ+CiAgICAgICAgICAgIDwvdHI+CiAgICAgICAgPC90aGVhZD4KICAgICAgICA8dGJvZHk+CiAgICAgICAgICAgIDx0ciBuZy1yZXBlYXQ9Imxpc3QgaW4gbGlzdHMgfCBmaWx0ZXI6anNvblBhdGgiPgogICAgICAgICAgICAgICAgPHRkPnt7bGlzdC5wYXRofX08L3RkPgogICAgICAgICAgICAgICAgPHRkPjxhIGhyZWY9IiMvZGV0YWlsL3t7bGlzdC5pZH19Ij7mn6XnnIs8L2E+PGEgaHJlZj0iIj7liKDpmaQ8L2E+PC90ZD4KICAgICAgICAgICAgPC90cj4KICAgICAgICA8L3Rib2R5PgogICAgPC90YWJsZT4KPC9kaXY+","base64"),
+                    template: Buffer("PGRpdiAgY2xhc3M9InJvdyI+CiAgICA8ZGl2IGNsYXNzPSJjb2wtbGctMyI+CiAgICAgICAgPGRpdiBjbGFzcz0iaW5wdXQtZ3JvdXAiPgogICAgICAgICAgICA8aW5wdXQgdHlwZT0idGV4dCIgY2xhc3M9ImZvcm0tY29udHJvbCIgbmctbW9kZWw9Impzb25QYXRoIiBwbGFjZWhvbGRlcj0iU2VhcmNoIGludGVmYWNlIGxpc3QiPgogICAgICAgICAgICA8c3BhbiBjbGFzcz0iaW5wdXQtZ3JvdXAtYnRuIj4KICAgICAgICAgICAgICAgIDxidXR0b24gY2xhc3M9ImJ0biBidG4tZGVmYXVsdCIgdHlwZT0iYnV0dG9uIj5HbyE8L2J1dHRvbj4KICAgICAgICAgICAgPC9zcGFuPgogICAgICAgIDwvZGl2PgogICAgPC9kaXY+CjwvZGl2Pgo8ZGl2IGNsYXNzPSJwYW5lbCBwYW5lbC1kZWZhdWx0IG1hcmdpbi10MTAiPgogICAgPGRpdiBjbGFzcz0icGFuZWwtYm9keSI+CiAgICA8L2Rpdj4KICAgIDx0YWJsZSBjbGFzcz0idGFibGUiPgogICAgICAgIDx0aGVhZD4KICAgICAgICAgICAgPHRyPgogICAgICAgICAgICAgICAgPHRkIGNsYXNzPSJib2xkIHdwODAiPnBhdGg8L3RkPgogICAgICAgICAgICAgICAgPHRkIGNsYXNzPSJib2xkIHdwMjAiPk9wZXJhdGluZzwvdGQ+CiAgICAgICAgICAgIDwvdHI+CiAgICAgICAgPC90aGVhZD4KICAgICAgICA8dGJvZHk+CiAgICAgICAgICAgIDx0ciBuZy1yZXBlYXQ9Imxpc3QgaW4gbGlzdHMgfCBmaWx0ZXI6anNvblBhdGgiPgogICAgICAgICAgICAgICAgPHRkPnt7bGlzdC5yZXF1ZXN0VXJsfX08L3RkPgogICAgICAgICAgICAgICAgPHRkPjxhIGhyZWY9IiMvZGV0YWlsL3t7bGlzdC5yZXF1ZXN0VXJsfX0iPuafpeecizwvYT48YSBocmVmPSIjIj7liKDpmaQ8L2E+PC90ZD4KICAgICAgICAgICAgPC90cj4KICAgICAgICA8L3Rib2R5PgogICAgPC90YWJsZT4KPC9kaXY+","base64"),
                     controller: 'listsCtrl'
                 }
             }
@@ -43802,7 +43802,8 @@ module.exports = angular.module('listEdit', [])
 module.exports = function headerCtrl($scope, $stateParams, $http) {
     var paramsId = $stateParams.id;
     var isDetail = paramsId !== undefined ? true : false;
-
+    // 根据请求参数找data目录找对应的文件，获取接口名称，参数，请求方式等等
+    // TODO
     angular.extend($scope, {
         isDetail: isDetail,
         interfaceSuffix: '.json',
@@ -43842,7 +43843,9 @@ module.exports = function headerCtrl($scope, $stateParams, $http) {
         },
         submit: function () {
             $http.post('/modify',angular.fromJson($scope.data)).then(function(data){
-                alert('保存成功');
+                if (data.data.code === 200) {
+                    alert('保存成功');
+                }
             });
         }
     });
@@ -43858,12 +43861,15 @@ module.exports = angular.module('lists', [])
 'use strict';
 
 module.exports = function listsCtrl($scope, $http, allLists) {
-    allLists.getAllLists().then(function (data) {
-        $scope.lists = data;
+    //allLists.getAllLists().then(function (data) {
+    //    $scope.lists = data;
+    //});
+    $http.get('/query').then(function(data){
+        $scope.lists = data.data.data;
     });
-    $http.get('/query',angular.fromJson($scope.data)).then(function(data){
-        alert('查询成功');
-    });
+
+    // TODO
+    // 删除接口操作
 }
 },{}],23:[function(require,module,exports){
 /**

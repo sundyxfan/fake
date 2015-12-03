@@ -1,0 +1,30 @@
+{
+     "urls": [
+          {
+               "url": "/getInfo.json"
+          },
+          {
+               "url": "/setInfo.json"
+          },
+          {
+               "url": "/saveInfo.json"
+          }
+     ],
+     "requestUrl": "/get.json",
+     "method": "GET",
+     "requestParameters": [
+          {
+               "id": 1,
+               "paramName": "name",
+               "remark": "beizhu",
+               "required": false
+          },
+          {
+               "id": 2,
+               "paramName": "name2",
+               "remark": "beizhu",
+               "required": true
+          }
+     ],
+     "responseJson": ""
+}
